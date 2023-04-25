@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 import dataclasses
-from pathlib import Path
-from typing import Any, List
-
 import numpy as np
 import orjson
+from pathlib import Path
+from typing import Any, List
 
 from autogpt.llm_utils import create_embedding_with_ada
 from autogpt.memory.base import MemoryProviderSingleton

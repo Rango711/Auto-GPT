@@ -1,6 +1,5 @@
-import unittest
-
 import coverage
+import unittest
 
 if __name__ == "__main__":
     # Start coverage collection

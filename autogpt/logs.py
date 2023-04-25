@@ -6,9 +6,8 @@ import random
 import re
 import time
 import traceback
-from logging import LogRecord
-
 from colorama import Fore, Style
+from logging import LogRecord
 
 from autogpt.config import Config
 from autogpt.singleton import Singleton

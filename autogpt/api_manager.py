@@ -1,6 +1,5 @@
-from typing import List
-
 import openai
+from typing import List
 
 from autogpt.config import Config
 from autogpt.logs import logger

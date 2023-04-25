@@ -1,12 +1,11 @@
 """Configuration class to store the state of bools for different scripts access."""
-import os
-from typing import List
-
 import openai
+import os
 import yaml
 from auto_gpt_plugin_template import AutoGPTPluginTemplate
 from colorama import Fore
 from dotenv import load_dotenv
+from typing import List
 
 from autogpt.singleton import Singleton
 

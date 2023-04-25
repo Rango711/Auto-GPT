@@ -1,6 +1,5 @@
 """A module that contains a command to send a tweet."""
 import os
-
 import tweepy
 from dotenv import load_dotenv
 

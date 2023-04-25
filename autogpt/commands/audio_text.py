@@ -1,6 +1,5 @@
 """Commands for converting audio to text."""
 import json
-
 import requests
 
 from autogpt.commands.command import command

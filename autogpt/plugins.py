@@ -2,17 +2,16 @@
 
 import importlib
 import json
+import openapi_python_client
 import os
+import requests
 import zipfile
+from auto_gpt_plugin_template import AutoGPTPluginTemplate
+from openapi_python_client.cli import Config as OpenAPIConfig
 from pathlib import Path
 from typing import List, Optional, Tuple
 from urllib.parse import urlparse
 from zipimport import zipimporter
-
-import openapi_python_client
-import requests
-from auto_gpt_plugin_template import AutoGPTPluginTemplate
-from openapi_python_client.cli import Config as OpenAPIConfig
 
 from autogpt.config import Config
 from autogpt.models.base_open_ai_plugin import BaseOpenAIPlugin

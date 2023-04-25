@@ -1,8 +1,7 @@
 """Execute code in a Docker container"""
+import docker
 import os
 import subprocess
-
-import docker
 from docker.errors import ImageNotFound
 
 from autogpt.commands.command import command

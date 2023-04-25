@@ -1,9 +1,8 @@
 # sourcery skip: snake-case-functions
 """Tests for LocalCache class"""
-import unittest
-
 import orjson
 import pytest
+import unittest
 
 from autogpt.memory.local import EMBED_DIM, SAVE_OPTIONS
 from autogpt.memory.local import LocalCache as LocalCache_

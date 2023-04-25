@@ -1,7 +1,6 @@
+import pkg_resources
 import re
 import sys
-
-import pkg_resources
 
 
 def main():

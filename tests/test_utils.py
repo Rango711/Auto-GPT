@@ -1,10 +1,9 @@
 import os
-from unittest.mock import Mock, patch
-
 import pytest
 import requests
 from colorama import Fore
 from git import Repo
+from unittest.mock import Mock, patch
 
 from autogpt.utils import (
     clean_input,

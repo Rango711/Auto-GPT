@@ -1,9 +1,8 @@
 """Functions for counting the number of tokens in a message or string."""
 from __future__ import annotations
 
-from typing import List
-
 import tiktoken
+from typing import List
 
 from autogpt.logs import logger
 from autogpt.types.openai import Message

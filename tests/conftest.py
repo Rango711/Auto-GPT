@@ -1,7 +1,6 @@
-from pathlib import Path
-
 import pytest
 from dotenv import load_dotenv
+from pathlib import Path
 
 from autogpt.config import Config
 from autogpt.workspace import Workspace

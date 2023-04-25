@@ -4,10 +4,9 @@ from __future__ import annotations
 
 import contextlib
 import json
-from typing import Any, Dict
-
 from colorama import Fore
 from regex import regex
+from typing import Any, Dict
 
 from autogpt.config import Config
 from autogpt.json_utils.json_fix_general import correct_json

@@ -1,7 +1,6 @@
 """Utilities for the json_fixes package."""
 import json
 import re
-
 from jsonschema import Draft7Validator
 
 from autogpt.config import Config

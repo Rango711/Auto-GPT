@@ -1,11 +1,10 @@
 """ Image Generation Module for AutoGPT."""
 import io
-import uuid
-from base64 import b64decode
-
 import openai
 import requests
+import uuid
 from PIL import Image
+from base64 import b64decode
 
 from autogpt.commands.command import command
 from autogpt.config import Config

@@ -1,6 +1,5 @@
 """ Milvus memory storage provider."""
 import re
-
 from pymilvus import Collection, CollectionSchema, DataType, FieldSchema, connections
 
 from autogpt.config import Config

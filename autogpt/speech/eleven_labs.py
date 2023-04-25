@@ -1,6 +1,5 @@
 """ElevenLabs speech module"""
 import os
-
 import requests
 from playsound import playsound
 

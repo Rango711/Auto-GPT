@@ -2,9 +2,8 @@ import hashlib
 import os
 import shutil
 import unittest
-from pathlib import Path
-
 from PIL import Image
+from pathlib import Path
 
 from autogpt.commands.image_gen import generate_image, generate_image_with_sd_webui
 from autogpt.config import Config

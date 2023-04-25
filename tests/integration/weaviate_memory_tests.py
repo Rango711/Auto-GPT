@@ -1,6 +1,5 @@
 import unittest
 from uuid import uuid4
-
 from weaviate import Client
 from weaviate.util import get_valid_uuid
 

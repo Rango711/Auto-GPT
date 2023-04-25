@@ -4,13 +4,12 @@ A module that contains the AIConfig class object that contains the configuration
 """
 from __future__ import annotations
 
+import distro
 import os
 import platform
+import yaml
 from pathlib import Path
 from typing import Optional, Type
-
-import distro
-import yaml
 
 from autogpt.prompts.generator import PromptGenerator
 

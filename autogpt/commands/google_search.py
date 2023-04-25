@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import json
-
 from duckduckgo_search import ddg
 
 from autogpt.commands.command import command

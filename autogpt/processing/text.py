@@ -1,8 +1,7 @@
 """Text processing functions"""
-from typing import Dict, Generator, Optional
-
 import spacy
 from selenium.webdriver.remote.webdriver import WebDriver
+from typing import Dict, Generator, Optional
 
 from autogpt import token_counter
 from autogpt.config import Config

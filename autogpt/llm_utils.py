@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-import time
-from typing import List, Optional
-
 import openai
+import time
 from colorama import Fore, Style
 from openai.error import APIError, RateLimitError, Timeout
+from typing import List, Optional
 
 from autogpt.api_manager import api_manager
 from autogpt.config import Config

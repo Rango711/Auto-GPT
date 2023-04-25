@@ -1,6 +1,5 @@
-from unittest.mock import MagicMock
-
 import pytest
+from unittest.mock import MagicMock
 
 from autogpt.agent import Agent
 from autogpt.chat import chat_with_ai

@@ -1,10 +1,10 @@
-import weaviate
-from weaviate import Client
 from weaviate.embedded import EmbeddedOptions
 from weaviate.util import generate_uuid5
 
+import weaviate
 from autogpt.llm_utils import get_ada_embedding
 from autogpt.memory.base import MemoryProviderSingleton
+from weaviate import Client
 
 
 def default_schema(weaviate_index):

@@ -1,6 +1,5 @@
-from typing import Any, Dict, List, Optional, Tuple
-
 import pytest
+from typing import Any, Dict, List, Optional, Tuple
 
 from autogpt.models.base_open_ai_plugin import (
     BaseOpenAIPlugin,

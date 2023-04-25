@@ -3,11 +3,10 @@ from __future__ import annotations
 
 import os
 import os.path
-from typing import Generator
-
 import requests
 from colorama import Back, Fore
 from requests.adapters import HTTPAdapter, Retry
+from typing import Generator
 
 from autogpt.commands.command import command
 from autogpt.config import Config

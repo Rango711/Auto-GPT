@@ -1,9 +1,8 @@
 """The application entry point.  Can be invoked by a CLI or any other front end application."""
 import logging
 import sys
-from pathlib import Path
-
 from colorama import Fore
+from pathlib import Path
 
 from autogpt.agent.agent import Agent
 from autogpt.commands.command import CommandRegistry

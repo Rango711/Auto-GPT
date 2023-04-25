@@ -1,6 +1,5 @@
 """Set up the AI and its goals"""
 import re
-
 from colorama import Fore, Style
 
 from autogpt import utils

@@ -1,9 +1,8 @@
 import os
+import pytest
 import shutil
 import sys
 from pathlib import Path
-
-import pytest
 
 from autogpt.commands.command import Command, CommandRegistry
 

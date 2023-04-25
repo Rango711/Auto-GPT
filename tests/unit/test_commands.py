@@ -1,7 +1,6 @@
 """Unit tests for the commands module"""
-from unittest.mock import MagicMock, patch
-
 import pytest
+from unittest.mock import MagicMock, patch
 
 import autogpt.agent.agent_manager as agent_manager
 from autogpt.app import execute_command, list_agents, start_agent

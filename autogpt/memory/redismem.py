@@ -1,14 +1,13 @@
 """Redis memory provider."""
 from __future__ import annotations
 
-from typing import Any
-
 import numpy as np
 import redis
 from colorama import Fore, Style
 from redis.commands.search.field import TextField, VectorField
 from redis.commands.search.indexDefinition import IndexDefinition, IndexType
 from redis.commands.search.query import Query
+from typing import Any
 
 from autogpt.llm_utils import create_embedding_with_ada
 from autogpt.logs import logger

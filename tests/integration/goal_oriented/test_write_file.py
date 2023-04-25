@@ -1,7 +1,6 @@
 import concurrent
 import os
 import unittest
-
 import vcr
 
 from autogpt.agent import Agent

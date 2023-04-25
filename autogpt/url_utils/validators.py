@@ -1,8 +1,7 @@
 import functools
+from requests.compat import urljoin
 from typing import Any, Callable
 from urllib.parse import urljoin, urlparse
-
-from requests.compat import urljoin
 
 
 def validate_url(func: Callable[..., Any]) -> Any:
