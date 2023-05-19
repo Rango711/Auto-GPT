@@ -1,22 +1,23 @@
+<<<<<<< HEAD
+=======
+from __future__ import annotations
+
+>>>>>>> upstream/master
 import openai
 from typing import List
 
 from autogpt.config import Config
 from autogpt.logs import logger
 from autogpt.modelsinfo import COSTS
-
-cfg = Config()
-openai.api_key = cfg.openai_api_key
-print_total_cost = cfg.debug_mode
+from autogpt.singleton import Singleton
 
 
-class ApiManager:
-    def __init__(self, debug=False):
+class ApiManager(metaclass=Singleton):
+    def __init__(self):
         self.total_prompt_tokens = 0
         self.total_completion_tokens = 0
         self.total_cost = 0
         self.total_budget = 0
-        self.debug = debug
 
     def reset(self):
         self.total_prompt_tokens = 0
@@ -28,7 +29,7 @@ class ApiManager:
         self,
         messages: list,  # type: ignore
         model: str | None = None,
-        temperature: float = cfg.temperature,
+        temperature: float = None,
         max_tokens: int | None = None,
         deployment_id=None,
     ) -> str:
@@ -42,6 +43,9 @@ class ApiManager:
         Returns:
         str: The AI's response.
         """
+        cfg = Config()
+        if temperature is None:
+            temperature = cfg.temperature
         if deployment_id is not None:
             response = openai.ChatCompletion.create(
                 deployment_id=deployment_id,
@@ -49,6 +53,7 @@ class ApiManager:
                 messages=messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
+                api_key=cfg.openai_api_key,
             )
         else:
             response = openai.ChatCompletion.create(
@@ -56,39 +61,13 @@ class ApiManager:
                 messages=messages,
                 temperature=temperature,
                 max_tokens=max_tokens,
+                api_key=cfg.openai_api_key,
             )
-        if self.debug:
-            logger.debug(f"Response: {response}")
+        logger.debug(f"Response: {response}")
         prompt_tokens = response.usage.prompt_tokens
         completion_tokens = response.usage.completion_tokens
         self.update_cost(prompt_tokens, completion_tokens, model)
         return response
-
-    def embedding_create(
-        self,
-        text_list: List[str],
-        model: str = "text-embedding-ada-002",
-    ) -> List[float]:
-        """
-        Create an embedding for the given input text using the specified model.
-
-        Args:
-        text_list (List[str]): Input text for which the embedding is to be created.
-        model (str, optional): The model to use for generating the embedding.
-
-        Returns:
-        List[float]: The generated embedding as a list of float values.
-        """
-        if cfg.use_azure:
-            response = openai.Embedding.create(
-                input=text_list,
-                engine=cfg.get_azure_deployment_id_for_model(model),
-            )
-        else:
-            response = openai.Embedding.create(input=text_list, model=model)
-
-        self.update_cost(response.usage.prompt_tokens, 0, model)
-        return response["data"][0]["embedding"]
 
     def update_cost(self, prompt_tokens, completion_tokens, model):
         """
@@ -105,15 +84,14 @@ class ApiManager:
             prompt_tokens * COSTS[model]["prompt"]
             + completion_tokens * COSTS[model]["completion"]
         ) / 1000
-        if print_total_cost:
-            print(f"Total running cost: ${self.total_cost:.3f}")
+        logger.debug(f"Total running cost: ${self.total_cost:.3f}")
 
     def set_total_budget(self, total_budget):
         """
         Sets the total user-defined budget for API calls.
 
         Args:
-        prompt_tokens (int): The number of tokens used in the prompt.
+        total_budget (float): The total budget for API calls.
         """
         self.total_budget = total_budget
 
@@ -152,6 +130,3 @@ class ApiManager:
         float: The total budget for API calls.
         """
         return self.total_budget
-
-
-api_manager = ApiManager(cfg.debug_mode)

@@ -60,7 +60,9 @@ def sanitize_url(url: str) -> str:
     Returns:
         str: The sanitized URL
     """
-    return urljoin(url, urlparse(url).path)
+    parsed_url = urlparse(url)
+    reconstructed_url = f"{parsed_url.path}{parsed_url.params}?{parsed_url.query}"
+    return urljoin(url, reconstructed_url)
 
 
 def check_local_file_access(url: str) -> bool:

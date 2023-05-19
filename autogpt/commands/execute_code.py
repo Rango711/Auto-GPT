@@ -2,6 +2,12 @@
 import docker
 import os
 import subprocess
+<<<<<<< HEAD
+=======
+from pathlib import Path
+
+import docker
+>>>>>>> upstream/master
 from docker.errors import ImageNotFound
 
 from autogpt.commands.command import command
@@ -39,7 +45,6 @@ def execute_python_file(filename: str) -> str:
 
     try:
         client = docker.from_env()
-
         # You can replace this with the desired Python image/version
         # You can find available Python images on Docker Hub:
         # https://hub.docker.com/_/python
@@ -59,10 +64,9 @@ def execute_python_file(filename: str) -> str:
                     print(f"{status}: {progress}")
                 elif status:
                     print(status)
-
         container = client.containers.run(
             image_name,
-            f"python {filename}",
+            f"python {Path(filename).relative_to(CFG.workspace_path)}",
             volumes={
                 CFG.workspace_path: {
                     "bind": "/workspace",
@@ -132,6 +136,7 @@ def execute_shell(command_line: str) -> str:
     # Change back to whatever the prior working dir was
 
     os.chdir(current_dir)
+    return output
 
 
 @command(
